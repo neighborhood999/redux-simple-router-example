@@ -6,11 +6,13 @@ import Home from './components/Home';
 
 const {
   CounterPage,
+  Search500Px
 } = containers;
 
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={Home} />
     <Route path="/counter" component={CounterPage} />
+    <Route path="/search500px" component={Search500Px} />
   </Route>
 );
