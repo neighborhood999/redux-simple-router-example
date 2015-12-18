@@ -15,6 +15,9 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
+    new webpack.ProvidePlugin({
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch',
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('development')
@@ -30,6 +33,10 @@ module.exports = {
         test: /\.js$/,
         loaders: ['babel'],
         exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        loaders: ['style-loader', 'css-loader']
       }
     ]
   }
