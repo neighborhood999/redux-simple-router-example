@@ -7,6 +7,7 @@
     "start": "node server.js"
   },
   "license": "MIT",
+  "repo": "https://github.com/neighborhood999/redux-simple-router-example",
   "dependencies": {
     "exports-loader": "^0.6.2",
     "history": "~1.13.x",
