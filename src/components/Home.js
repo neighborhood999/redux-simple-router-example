@@ -24,8 +24,8 @@ export default class Home extends Component {
         <div className="jumbotron text-center">
             <div className="container">
                 <h2>We ♥ redux</h2>
-                <i>redux simple router</i>
-                <p>redux ↔ redux-simple-router ↔ history ↔ react-router</p>
+                <i>react redux router</i>
+                <p>redux ↔ react-router-redux ↔ history ↔ react-router</p>
             </div>
        </div>
       </div>
