@@ -27,10 +27,16 @@ export default class SearchApp extends Component {
             </div>
           </div>
           <div className="container">
-            <PhotoList searchNextPageAction={searchNextPageAction} photos={photos} status={status} />
+            <PhotoList
+              searchNextPageAction={searchNextPageAction}
+              photos={photos}
+              status={status}
+            />
           </div>
           <div className="footer">
-            <p className="text-center">Redux Example By <a href="https://github.com/yildizberkay/redux-example"><em>yildizberkay</em></a></p>
+            <p className="text-center">
+              Redux Example By <a href="https://github.com/yildizberkay/redux-example"><em>yildizberkay</em></a>
+            </p>
           </div>
         </div>
       );
