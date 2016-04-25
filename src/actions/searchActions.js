@@ -12,14 +12,13 @@ function searchWithPhotoAPI(keyword, page, dispatch) {
     });
   }
 
-  photoSearch(keyword, page, (data) => {
-    dispatch({
+  photoSearch(keyword, page)
+    .then(data => dispatch({
       type: types.SEARCH_DONE,
       photos: data.photos,
       page,
       keyword,
-    });
-  });
+    }));
 }
 
 export function searchNextPageAction() {
@@ -31,7 +30,7 @@ export function searchNextPageAction() {
 }
 
 export function searchPhotoAction(keyword, page = 1) {
-  return (dispatch) => {
+  return dispatch => {
     searchWithPhotoAPI(keyword, page, dispatch);
   };
 }

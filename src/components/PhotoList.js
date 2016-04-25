@@ -7,43 +7,39 @@ export default class PhotoList extends Component {
     status: PropTypes.string.isRequired,
   };
 
-  nextPage() {
-    this.props.searchNextPageAction();
-  }
-
   renderLoadButton() {
+    const { searchNextPageAction } = this.props;
+
     return (
-      <div style={{marginBottom: '20px'}} className="row">
+      <div style={{ marginBottom: '20px' }} className="row">
         <div className="col-md-6 col-md-offset-3">
-          <button onClick={this.nextPage.bind(this)} type="button" className="btn btn-default btn-lg btn-block">載入更多圖片...</button>
+          <button
+            type="button"
+            onClick={searchNextPageAction}
+            className="btn btn-default btn-lg btn-block"
+          >
+            載入更多圖片...
+          </button>
         </div>
       </div>
     );
   }
 
   render() {
+    const { photos, status } = this.props;
+
     return (
       <div>
         <div className="row">
-          {
-            this.props.photos.map((item, index) => {
-              return (
-                <div className="col-md-3 image-item" key={`PhotoItem_${item.id}_${index}`}>
-                  <img src={item.image_url} />
-                </div>
-              );
-            })
-          }
+          {photos.map((item, index) =>
+            <div className="col-md-3 image-item" key={`PhotoItem_${item.id}_${index}`}>
+              <img src={item.image_url} />
+            </div>
+          )}
           <div className="clearfix" />
         </div>
 
-        {
-          (() => {
-            if (this.props.status === 'DONE') {
-              return this.renderLoadButton();
-            }
-          })()
-        }
+        {(status === 'DONE') && this.renderLoadButton()}
       </div>
     );
   }

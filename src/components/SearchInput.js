@@ -7,7 +7,7 @@ export default class SearchInput extends Component {
       status: PropTypes.string.isRequired,
     };
 
-    searchPhoto(event) {
+    searchPhoto = event => {
       if (event.which === 13) {
         const keyword = findDOMNode(this.refs.keyword).value;
         this.props.searchPhotoAction(keyword);
@@ -18,7 +18,7 @@ export default class SearchInput extends Component {
 
     renderPending() {
       return (
-        <h2 className="text-center" style={{'marginTop': '50px'}}>
+        <h2 className="text-center" style={{ marginTop: '50px' }}>
           <i className="fa fa-refresh fa-spin"></i>
           {' '}Loading Image...
         </h2>
@@ -26,16 +26,22 @@ export default class SearchInput extends Component {
     }
 
     render() {
-      if (this.props.status === 'PENDING') {
-        return this.renderPending();
-      }
+      const { status } = this.props;
 
       return (
-        <div>
-          <div className="form-group">
-            <input onKeyDown={this.searchPhoto.bind(this)} type="text" ref="keyword" className="form-control input-lg" placeholder="請輸入你想找的圖片 + Enter..." />
+        status === 'PENDING' ?
+          this.renderPending() :
+          <div>
+            <div className="form-group">
+              <input
+                onKeyDown={this.searchPhoto}
+                type="text"
+                ref="keyword"
+                className="form-control input-lg"
+                placeholder="請輸入你想找的圖片 + Enter..."
+              />
+            </div>
           </div>
-        </div>
       );
     }
 }

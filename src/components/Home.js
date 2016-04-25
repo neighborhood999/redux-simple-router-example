@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, IndexLink } from 'react-router';
 
 export default class Home extends Component {
   render() {
@@ -8,7 +8,7 @@ export default class Home extends Component {
         <nav className="navbar navbar-default">
           <div className="container-fluid">
             <div className="navbar-header">
-             <a className="navbar-brand" href="/">Redux Simple Router</a>
+              <IndexLink to="/" className="navbar-brand">Redux Simple Router</IndexLink>
             </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav navbar-right">
