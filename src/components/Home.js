@@ -14,6 +14,7 @@ export default class Home extends Component {
               <ul className="nav navbar-nav navbar-right">
                 <li><Link to={`/counter`}>Counter</Link></li>
                 <li><Link to={`/search500px`}>Search500pxPhto</Link></li>
+                <li><Link to={`/todo`}>Todo</Link></li>
                 <li><a target="_blank" href="https://github.com/neighborhood999">My GitHub</a></li>
                 <li><a target="_blank" href="http://chentsulin.github.io/redux/">redux 中文文件</a></li>
                 <li><a target="_blank" href="http://facebook.github.io/react/">Reactjs</a></li>

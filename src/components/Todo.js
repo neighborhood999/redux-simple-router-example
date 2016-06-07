@@ -1,0 +1,44 @@
+import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
+
+export default class Counter extends Component {
+
+  static propTypes = {
+    addTodo: PropTypes.func.isRequired,
+  }
+  handleAddTodo = () => {
+    this.props.addTodo(this.refs.input.value);
+    this.refs.input.value;
+  }
+  handleDelete = (index) => {
+    this.props.deleteTodo(index);
+  }
+  handleEdit = (index) => {
+    const value = this.props.todos.get(index).text;
+    let newValue = window.prompt('', value);
+    this.props.editTodo(index, newValue);
+  }
+  render() {
+    const { todos } = this.props;
+    return (
+      <div>
+
+        <input type="text" ref="input" />
+        <button onClick={this.handleAddTodo}>
+          Add
+        </button>
+          {
+            todos.map(
+              (text, index) => <li key={index}>
+              {text}
+              <button onClick={() => this.handleDelete(index)}>刪除</button>
+              <button onClick={() => this.handleEdit(index)}>編輯</button>
+              </li> )
+          }
+        <p>
+          <button className="btn btn-link"><Link to={`/`}>Back Home</Link></button>
+        </p>
+      </div>
+    );
+  }
+}

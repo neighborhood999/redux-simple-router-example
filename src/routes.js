@@ -6,7 +6,8 @@ import Home from './components/Home';
 
 const {
   CounterPage,
-  Search500Px
+  Search500Px,
+  TodoPage,
 } = containers;
 
 export default (
@@ -14,5 +15,6 @@ export default (
     <IndexRoute component={Home} />
     <Route path="/counter" component={CounterPage} />
     <Route path="/search500px" component={Search500Px} />
+    <Route path="/todo" component={TodoPage} />
   </Route>
 );

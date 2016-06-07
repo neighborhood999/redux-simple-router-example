@@ -27,7 +27,6 @@ export default class SearchInput extends Component {
 
     render() {
       const { status } = this.props;
-
       return (
         status === 'PENDING' ?
           this.renderPending() :
