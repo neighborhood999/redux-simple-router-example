@@ -1,22 +1,15 @@
-import { ADD_TODO, DELETE_TODO, EDIT_TODO } from '../constants/todo';
-import { OrderedMap, Record } from 'immutable'
+import { ADD_TODO, DELETE_TODO} from '../constants/todo';
 
-const TodoRecord = Record({text: '', completed: false});
-const initialState = OrderedMap({0: new TodoRecord({text: 'Redux Todo'})});
-
-export default function todos(state=initialState, action) {
+export default function todos(state=[], action) {
   switch (action.type) {
     case ADD_TODO:
-      const id = state.reduce( (maxId, todo, id) => Math.max(id, maxId), 0 ) + 1;
-      return state.set(
-        id.toString(),
-        new TodoRecord({text: action.text})
-      );
+      return [...state,action.text]
     case DELETE_TODO :
-			return state.delete(action.id);
-    case EDIT_TODO :
-  		return state.set(action.id, action.text);
-  default:
-    return state;
+      return [
+        ...state.slice(0, action.id),
+        ...state.slice(action.id + 1)
+      ]
+    default:
+      return state;
   }
 }

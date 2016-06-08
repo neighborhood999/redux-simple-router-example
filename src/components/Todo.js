@@ -8,18 +8,14 @@ export default class Counter extends Component {
   }
   handleAddTodo = () => {
     this.props.addTodo(this.refs.input.value);
-    this.refs.input.value;
+    this.refs.input.value='';
   }
   handleDelete = (index) => {
     this.props.deleteTodo(index);
   }
-  handleEdit = (index) => {
-    const value = this.props.todos.get(index).text;
-    let newValue = window.prompt('', value);
-    this.props.editTodo(index, newValue);
-  }
   render() {
     const { todos } = this.props;
+    console.log({todos})
     return (
       <div>
 
@@ -32,7 +28,6 @@ export default class Counter extends Component {
               (text, index) => <li key={index}>
               {text}
               <button onClick={() => this.handleDelete(index)}>刪除</button>
-              <button onClick={() => this.handleEdit(index)}>編輯</button>
               </li> )
           }
         <p>
