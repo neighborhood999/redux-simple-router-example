@@ -6,21 +6,21 @@ export default class Counter extends Component {
   static propTypes = {
     addTodo: PropTypes.func.isRequired,
   }
-  handleAddTodo = () => {
+  handleAddTodo () {
     this.props.addTodo(this.refs.input.value);
     this.refs.input.value='';
   }
-  handleDelete = (index) => {
+  handleDelete = index => {
     this.props.deleteTodo(index);
   }
   render() {
     const { todos } = this.props;
-    console.log({todos})
+
     return (
       <div>
 
         <input type="text" ref="input" />
-        <button onClick={this.handleAddTodo}>
+        <button onClick={this.handleAddTodo.bind(this)}>
           Add
         </button>
           {
