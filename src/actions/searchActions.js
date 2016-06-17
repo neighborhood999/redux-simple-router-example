@@ -1,4 +1,4 @@
-import * as types from '../constants/SearchActionTypes';
+import * as types from '../constants/searchActionTypes';
 import photoSearch from '../api/photoSearch';
 
 function searchWithPhotoAPI(keyword, page, dispatch) {

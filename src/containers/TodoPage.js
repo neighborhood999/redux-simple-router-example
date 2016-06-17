@@ -4,7 +4,9 @@ import Todo from '../components/Todo';
 import * as Actions from '../actions/todo';
 
 function mapStateToProps(state) {
-  return { todos: state.todos };
+  return {
+    todos: state.todos,
+  };
 }
 
 function mapDispatchToProps(dispatch) {

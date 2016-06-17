@@ -33,7 +33,7 @@ export default class PhotoList extends Component {
         <div className="row">
           {photos.map((item, index) =>
             <div className="col-md-3 image-item" key={`PhotoItem_${item.id}_${index}`}>
-              <img src={item.image_url} />
+              <img role="presentation" src={item.image_url} />
             </div>
           )}
           <div className="clearfix" />
