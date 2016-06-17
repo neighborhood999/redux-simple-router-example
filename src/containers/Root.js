@@ -7,7 +7,6 @@ import createDevToolsWindow from '../utils/createDevToolsWindow';
 
 const store = configureStore();
 createDevToolsWindow(store);
-
 export default class Root extends Component {
   static propTypes = {
     history: RouterPropTypes.history.isRequired,
